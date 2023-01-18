@@ -33,9 +33,44 @@ CLOSE cursor_name;
 ```
 
 cursor를 닫는다.
+<br>
 
-```
 :rotating_light: cursor 를 사용할 때, cursor가 row를 찾지 못했을 경우에 대해 에러 처리를 해줘야한다.
 <br>
 FETCH문을 호출 할 때 마다 cursor가 다음 row를 읽기를 시도하기 때문이다. 마지막 행에 도달하면 다음 row는 없을 것이고 이럴 경우를 위해 NOT FOUND 핸들러를 선언해줘야한다.
+
+```sql
+DELIMITER$$
+
+CREATE PROCEDURE getNameList(
+    INOUT result VARCHAR(500)
+)
+BEGIN
+    DECLARE v_finished INT DEFAULT 0;
+    DECLARE v_name VARCHAR(500) DEFAULT "";
+
+    DECLARE name_cursor CURSOR FOR
+    SELECT name FROM user;
+
+    DECLARE CONTINUE HANDLER FOR NOT FOUND
+    SET v_finished = 1;
+
+    OPEN name_cursor;
+
+    get_name: LOOP
+
+    FETCH name_cursor INTO v_name;
+
+    IF v_finished = 1 THEN
+    LEAVE get_name;
+    END IF;
+
+    SET result = CONCAT(result,", ",v_name);
+
+    END LOOP get_name;
+
+    CLOSE name_cursor;
+END$$
+
+DELIMITER ;
 ```
