@@ -51,6 +51,8 @@ console.log(i); // ReferenceErrer
 
 C나 자바 등을 비롯한 대부분의 프로그래밍 언어는 함수 몸체만이 아니라 모든 코드 블록(if, for, while, try/catch 등)이 지역 스코프를 만든다. 이러한 특성을 블록 레벨 스코프라 한다. 하지만 var 키워드로 선언된 변수는 블록 스코프를 무시하고 스코프 울타리 밖에서도 접근 가능하다.
 
+`var 키워드 사용 예시`
+
 ```js
 for (var i = 0; i < 10; i++) {
   console.log(i);
