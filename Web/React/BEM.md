@@ -12,14 +12,15 @@ camelCase 대신에 camel-case처럼 `하이픈` 사용</br>
 
 ![image](https://user-images.githubusercontent.com/68781598/228702142-c09b44d9-5743-4537-b981-e4892b4c16d6.png)
 
-```javascript
-<div className ="card">
-  <div className = "card__image">
-  {image ? (
-    <img className="card__image--photo" scr={image} alt="" />
-  ) : (
-    <img className="card__image--empty" scr={EmptyImage} alt="" />
-  )}
+```html
+<div className="card">
+  <div className="card__image">
+    {image ? (
+    <img className="card__image--photo" scr="{image}" alt="" />
+    ) : (
+    <img className="card__image--empty" scr="{EmptyImage}" alt="" />
+    )}
+  </div>
 </div>
 ```
 
