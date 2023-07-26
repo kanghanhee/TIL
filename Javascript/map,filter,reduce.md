@@ -159,7 +159,7 @@ const reduce = (func, acc, iter) => {
 console.log(reduce(add, 0, [1, 2, 3, 4, 5]));
 ```
 
-사실 reduce는 시작값을 주지 않더라도 마치 `reduce(add, 1, [ 2, 3, 4, 5])` 이렇게 받은 첫번째 값을 꺼내서 기본값으로 변경하는 식으로 동작한다.
+사실 자바스크립트의 `reduce`는 시작값을 주지 않더라도 마치 `reduce(add, 1, [ 2, 3, 4, 5])` 이렇게 받은 첫번째 값을 꺼내서 기본값으로 변경하는 식으로 동작한다.
 이렇게 구현해보겠다.
 
 ```javascript
@@ -176,4 +176,36 @@ const reduce = (func, acc, iter) => {
   return acc;
 };
 console.log(reduce(add, [1, 2, 3, 4, 5])); // 15 잘 출력됨
+```
+
+```javascript
+const products = [
+  { name: "반팔티", price: 15000 },
+  { name: "긴팔티", price: 20000 },
+  { name: "핸드폰케이스", price: 15000 },
+  { name: "후드티", price: 30000 },
+  { name: "바지", price: 25000 },
+];
+
+console.log(
+  reduce((total_price, product) => total_price + product.price, 0, products)
+);
+```
+
+이건 안됨. </br>
+`why?` reduce를 사용할때 배열의 원소의 형과 누적하여 리턴할 값의 형이 다른 패턴일때는 초기값이 없을 수 없습니다. 이 패턴일 때는 초기값이 없겠금 무언가를 하는 일 자체를 고려하는 것이 의미가 없는 일 입니다. 애초에 초기값을 넣는 것이 올바른 사용법이기 때문입니다.</br>
+reduce 함수 구현부에 초기값이 없는 경우와 있는 경우를 지원하고 있는건 초기값이 필요한 패턴에서 초기값이 없을 경우를 지원하기 위함이 아닌,
+
+`reduce(add, [1, 2, 3]);`
+
+과 같이 사용하거나
+
+`reduce((obj, [k, v]) => Object.assign(obj, {[k]: v}), {}, [["a", 1], ["b", 2]]);`
+
+와 같이 사용하기 위해 이 두가지 용도만으로 사용하기 위해 지원하는 것입니다.
+
+```javascript
+console.log(
+  reduce((total_price, product) => total_price + product.price, products)
+);
 ```
