@@ -79,7 +79,7 @@ console.log(mult(1)); // (..._) => f(a, ..._);
 console.log(mult(1)(2)); // 2
 ```
 
-` filter``map``reduce `에 `curry`를 사용하면 이렇게 쓸 수 있다.
+순서를 바꾸는 go와 함수를 부분적으로 실행하는 curry를 통해 깔끔하게 바꿔봤다. ` filter``map``reduce `에 `curry`를 사용하면 이렇게 쓸 수 있다.
 
 ```javascript
 go(
@@ -91,7 +91,7 @@ go(
 );
 ```
 
-순서를 바꾸는 go와 함수를 부분적으로 실행하는 curry를 통해 깔끔하게 바꿔봤다.
+즉, 아래처럼 깔끔하게 쓸 수 있다는 것..!
 
 ```javascript
 go(
