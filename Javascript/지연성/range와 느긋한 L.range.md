@@ -67,4 +67,4 @@
 
 작지만 차이가 났다.
 
-![test](image.png)
+![image](https://github.com/kanghanhee/TIL/assets/68781598/a0fc37ca-2d32-431b-a371-1c7d0681d170)
