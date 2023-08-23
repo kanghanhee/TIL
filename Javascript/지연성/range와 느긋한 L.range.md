@@ -68,3 +68,40 @@
 작지만 차이가 났다.
 
 ![image](https://github.com/kanghanhee/TIL/assets/68781598/a0fc37ca-2d32-431b-a371-1c7d0681d170)
+
+limit 값과 이터러블을 받아서 limit 값이 되면 바로 return 해주는 take 함수를 만들어 다시 한 번 테스트해보겠다.
+
+```html
+<script>
+  const take = (l, iter) => {
+    let res = [];
+    for (const a of iter) {
+      res.push(a);
+      if (res.length == l) return res;
+    }
+    return res;
+  };
+
+  console.time("");
+  log(take(5, range(100000)));
+  console.timeEnd("");
+
+  console.time("");
+  log(take(5, L.range(100000)));
+  console.timeEnd("");
+</script>
+```
+
+![image](https://github.com/kanghanhee/TIL/assets/68781598/f7aa9034-bc1e-46cf-ae9b-c9fb3bf4fec4)
+
+wow :wow: 이렇게 지연성을 가지는 제너레이터로 이터레이터를 리턴하는 L.range 함수같은 경우 해당하는 연산이 안에서 이뤄지지 않고 `take`나 `reduce`를 만날 때(Array에 있는 값들이 필요해질 때)까지 연산을 미루다가 연산이 시작되게 되기 때문에 효율적일 수 있다.
+
+또, 어차피 5개의 값만 가지기 때문에 무한수열도 됨!
+
+```javascript
+console.time("Infinity");
+log(take(5, L.range(Infinity)));
+console.timeEnd("Infinity");
+```
+
+![image](https://github.com/kanghanhee/TIL/assets/68781598/d578c1c1-481a-4a4a-aea7-75d2710b7893)
