@@ -24,7 +24,7 @@ delay 함수를 async로 선언했으니 promise 를 리턴하고, 리턴된 pro
 
 **결론은 new Promise 없이 구현할 수 없다 !**
 
-javascript 개발을 하면서 Promise 를 잘 알고 있어야한다는 것을 다시 또 느꼈다. `async/await`만 안다고 되는게 아니다.
+javascript 개발을 하면서 Promise 잘 쓸 줄 알아야한다 걸 또 느꼈다. `async/await`만 안다고 되는게 아니다.
 
 ```html
 <script>
@@ -38,3 +38,8 @@ javascript 개발을 하면서 Promise 를 잘 알고 있어야한다는 것을 
     console.log('promise', p);
 </script>
 ```
+
+잘 기다리는군..!
+
+![image](https://github.com/kanghanhee/TIL/assets/68781598/67ef1dee-51a5-4f2e-8fe4-9d4e8aca9fff)
+
