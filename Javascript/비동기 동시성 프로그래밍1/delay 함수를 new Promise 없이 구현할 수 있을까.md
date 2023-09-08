@@ -39,7 +39,7 @@ javascript 개발을 하면서 Promise 잘 쓸 줄 알아야한다 걸 또 느�
 </script>
 ```
 
-잘 기다리는군..!
+promise 객체로 반환해주니까 잘 기다리는군..!
 
 ![image](https://github.com/kanghanhee/TIL/assets/68781598/67ef1dee-51a5-4f2e-8fe4-9d4e8aca9fff)
 
