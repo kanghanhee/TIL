@@ -5,6 +5,7 @@
 // function printName(name) {
 //   console.log(name);
 // }
+///
 
 function printName(name: string) {
   console.log(name);
